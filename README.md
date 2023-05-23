@@ -48,8 +48,8 @@ $curl --cacert http_ca.crt -u elastic https://localhost:9200
 	mdp  : RbnHzY51ZeuD1BNa*VaG
 
 II. Installation de Kibana
-	1. Téléchargement de l'image Kibana 
-		$docker pull docker.elastic.co/kibana/kibana:8.7.1
+1. Téléchargement de l'image Kibana 		
+	$docker pull docker.elastic.co/kibana/kibana:8.7.1
 
 2. Création et démarage d'un nouveau container nommé kib-01
 	$docker run --name kib-01 --net elastic -p 5601:5601 docker.elastic.co/kibana/kibana:8.7.1
