@@ -23,7 +23,7 @@ $docker network create elastic
 ```
 $docker run --name es01 --net elastic -e discovery.type=single-node -p 9200:9200 -it docker.elastic.co/elasticsearch/elasticsearch:8.7.1
 ```
-> a) Récupération des information des configuration 
+**6. Récupération des information des configuration**
 
 >✅ Elasticsearch security features have been automatically configured!
 >✅ Authentication is enabled and cluster connections are encrypted.
@@ -49,22 +49,28 @@ docker run -e "ENROLLMENT_TOKEN=<token>" docker.elastic.co/elasticsearch/elastic
 ```
 
 
-6. Copie du certificat du container
-	$docker cp es01:/usr/share/elasticsearch/config/certs/http_ca.crt
+**7. Copie du certificat du container**	
+```
+$docker cp es01:/usr/share/elasticsearch/config/certs/http_ca.crt
+```
 
-7. Vérification que l'on peut se connecter au container
-	
-
+**8. Vérification que l'on peut se connecter au container**
+```
 $curl --cacert http_ca.crt -u elastic https://localhost:9200
 	user : elastic
 	mdp  : RbnHzY51ZeuD1BNa*VaG
+```
 
-II. Installation de Kibana
-1. Téléchargement de l'image Kibana 		
-	$docker pull docker.elastic.co/kibana/kibana:8.7.1
-
-2. Création et démarage d'un nouveau container nommé kib-01
-	$docker run --name kib-01 --net elastic -p 5601:5601 docker.elastic.co/kibana/kibana:8.7.1
-
-2.1 Commande si la key est expiré 
-	$docker exec -it es01 /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
+## Installation de Kibana
+**1. Téléchargement de l'image Kibana** 		
+```	
+$docker pull docker.elastic.co/kibana/kibana:8.7.1
+```
+**2. Création et démarage d'un nouveau container nommé kib-01**
+```	
+$docker run --name kib-01 --net elastic -p 5601:5601 docker.elastic.co/kibana/kibana:8.7.1
+```
+>Commande si la key est expiré 
+```
+$docker exec -it es01 /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
+```
