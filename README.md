@@ -23,8 +23,7 @@ $docker network create elastic
 ```
 $docker run --name es01 --net elastic -e discovery.type=single-node -p 9200:9200 -it docker.elastic.co/elasticsearch/elasticsearch:8.7.1
 ```
-
-	> a) Récupération des information des configuration 
+> a) Récupération des information des configuration 
 
 	✅ Elasticsearch security features have been automatically configured!
 	✅ Authentication is enabled and cluster connections are encrypted.
