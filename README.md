@@ -3,22 +3,26 @@
 ## Installation de Elasticsearch
 
 **1. Installation de docker Destop**
-	- Fichier d'installation 
-	```
-	https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module
-	```
+```
+https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module
+```
 
-2. Update du WSL 2
-	$wsl –update
-
-3. Téléchargement image elasticsearch
-	$docker pull docker.elastic.co/elasticsearch/elasticsearch:8.7.1
-
-4. Créeation d'un nouveau réseau Docker nommé "elastic" 
-	$docker network create elastic
-
-5. Création et démarage d'un container nommé es01
-	$docker run --name es01 --net elastic -e discovery.type=single-node -p 9200:9200 -it docker.elastic.co/elasticsearch/elasticsearch:8.7.1
+**2. Update du WSL 2**
+```	
+$wsl –update
+```
+**3. Téléchargement image elasticsearch**
+```
+$docker pull docker.elastic.co/elasticsearch/elasticsearch:8.7.1
+```
+**4. Créeation d'un nouveau réseau Docker nommé "elastic" **
+```	
+$docker network create elastic
+```
+**5. Création et démarage d'un container nommé es01**
+```
+$docker run --name es01 --net elastic -e discovery.type=single-node -p 9200:9200 -it docker.elastic.co/elasticsearch/elasticsearch:8.7.1
+```
 
 	a) Récupération des information des configuration 
 
