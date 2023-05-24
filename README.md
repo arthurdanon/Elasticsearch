@@ -25,19 +25,19 @@ $docker run --name es01 --net elastic -e discovery.type=single-node -p 9200:9200
 ```
 > a) Récupération des information des configuration 
 
-	✅ Elasticsearch security features have been automatically configured!
-	✅ Authentication is enabled and cluster connections are encrypted.
+>✅ Elasticsearch security features have been automatically configured!
+>✅ Authentication is enabled and cluster connections are encrypted.
 
-	ℹ️  Password for the elastic user (reset with `bin/elasticsearch-reset-password -u elastic`):
-	  RbnHzY51ZeuD1BNa*VaG
+>ℹ️  Password for the elastic user (reset with `bin/elasticsearch-reset-password -u elastic`):
+>RbnHzY51ZeuD1BNa*VaG
 
-	ℹ️  HTTP CA certificate SHA-256 fingerprint:
-	  ca8bded5754c783acb70992afdc4047f3ba3c73fb2d03d595da46e1e7e410dea
+>ℹ️  HTTP CA certificate SHA-256 fingerprint:
+>ca8bded5754c783acb70992afdc4047f3ba3c73fb2d03d595da46e1e7e410dea
 
-	ℹ️  Configure Kibana to use this cluster:
-	• Run Kibana and click the configuration link in the terminal when Kibana starts.
-	• Copy the following enrollment token and paste it into Kibana in your browser (valid for the next 30 minutes):
-	eyJ2ZXIiOiI4LjcuMSIsImFkciI6WyIxNzIuMTguMC4yOjkyMDAiXSwiZmdyIjoiY2E4YmRlZDU3NTRjNzgzYWNiNzA5OTJhZmRjNDA0N2YzYmEzYzczZmIyZDAzZDU5NWRhNDZlMWU3ZTQxMGRlYSIsImtleSI6IldDUGdRNGdCbHlrWVBKY3ltWFNMOmhIRWdtLUlPVFpPRDZkUDdndTk3amcifQ==
+>ℹ️  Configure Kibana to use this cluster:
+>• Run Kibana and click the configuration link in the terminal when Kibana starts.
+>• Copy the following enrollment token and paste it into Kibana in your browser (valid for the next 30 minutes):
+>eyJ2ZXIiOiI4LjcuMSIsImFkciI6WyIxNzIuMTguMC4yOjkyMDAiXSwiZmdyIjoiY2E4YmRlZDU3NTRjNzgzYWNiNzA5OTJhZmRjNDA0N2YzYmEzYzczZmIyZDAzZDU5NWRhNDZlMWU3ZTQxMGRlYSIsImtleSI6IldDUGdRNGdCbHlrWVBKY3ltWFNMOmhIRWdtLUlPVFpPRDZkUDdndTk3amcifQ==
 
 	ℹ️ Configure other nodes to join this cluster:
 	• Copy the following enrollment token and start new Elasticsearch nodes with `bin/elasticsearch --enrollment-token <token>` (valid for the next 30 minutes):
