@@ -39,12 +39,14 @@ $docker run --name es01 --net elastic -e discovery.type=single-node -p 9200:9200
 >• Copy the following enrollment token and paste it into Kibana in your browser (valid for the next 30 minutes):
 >eyJ2ZXIiOiI4LjcuMSIsImFkciI6WyIxNzIuMTguMC4yOjkyMDAiXSwiZmdyIjoiY2E4YmRlZDU3NTRjNzgzYWNiNzA5OTJhZmRjNDA0N2YzYmEzYzczZmIyZDAzZDU5NWRhNDZlMWU3ZTQxMGRlYSIsImtleSI6IldDUGdRNGdCbHlrWVBKY3ltWFNMOmhIRWdtLUlPVFpPRDZkUDdndTk3amcifQ==
 
-	ℹ️ Configure other nodes to join this cluster:
-	• Copy the following enrollment token and start new Elasticsearch nodes with `bin/elasticsearch --enrollment-token <token>` (valid for the next 30 minutes):
-		eyJ2ZXIiOiI4LjcuMSIsImFkciI6WyIxNzIuMTguMC4yOjkyMDAiXSwiZmdyIjoiY2E4YmRlZDU3NTRjNzgzYWNiNzA5OTJhZmRjNDA0N2YzYmEzYzczZmIyZDAzZDU5NWRhNDZlMWU3ZTQxMGRlYSIsImtleSI6ImFLZWhSNGdCMFdSZjhOSnhUZXVOOnJRelNOckhHVHRpemFTeTJPZU5PaGcifQ==
+>ℹ️ Configure other nodes to join this cluster:
+>• Copy the following enrollment token and start new Elasticsearch nodes with `bin/elasticsearch --enrollment-token ><token>` (valid for the next 30 minutes):
+>eyJ2ZXIiOiI4LjcuMSIsImFkciI6WyIxNzIuMTguMC4yOjkyMDAiXSwiZmdyIjoiY2E4YmRlZDU3NTRjNzgzYWNiNzA5OTJhZmRjNDA0N2YzYmEzYzczZmIyZDAzZDU5NWRhNDZlMWU3ZTQxMGRlYSIsImtleSI6ImFLZWhSNGdCMFdSZjhOSnhUZXVOOnJRelNOckhHVHRpemFTeTJPZU5PaGcifQ==
 		
-	  If you're running in Docker, copy the enrollment token and run:
-	  `docker run -e "ENROLLMENT_TOKEN=<token>" docker.elastic.co/elasticsearch/elasticsearch:8.7.1`
+>If you're running in Docker, copy the enrollment token and run:
+```
+docker run -e "ENROLLMENT_TOKEN=<token>" docker.elastic.co/elasticsearch/elasticsearch:8.7.1
+```
 
 
 6. Copie du certificat du container
