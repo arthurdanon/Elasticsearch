@@ -181,3 +181,6 @@ app.get('/index/:indexName/search', async (req, res) => {
   }
 });
 ```
+## Comment Elasticsearch procède-t-il au mapping?
+
+Elasticsearch utilise le mapping pour définir comment un document doit être mappé. Par défaut, il utilise le mappage dynamique, où le moteur de recherche décide du type de données en se basant sur les données indexées. Cependant, vous pouvez définir des mappings personnalisés si vous le souhaitez, en spécifiant le type de données pour chaque champ.
