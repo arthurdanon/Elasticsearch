@@ -74,3 +74,110 @@ $docker run --name kib-01 --net elastic -p 5601:5601 docker.elastic.co/kibana/ki
 ```
 $docker exec -it es01 /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
 ```
+
+## Créer des index via une APi express
+```
+app.post('/index', async (req, res) => {
+  try {
+    const { indexName } = req.body;
+
+    const body = {
+      mappings: {
+        properties: {
+          _id: { type: 'keyword' },
+          brand: { type: 'text' },
+          Model: { type: 'text' },
+          'Crystal Material': { type: 'text' },
+          'Price $': { type: 'float' }
+        }
+      }
+    };
+```
+
+## Indexer des documents
+```
+app.post('/index/:indexName/document', async (req, res) => {
+  try {
+    const { indexName } = req.params;
+    const { document } = req.body;
+
+    const { body } = await client.index({
+      index: indexName,
+      body: document
+    });
+
+    res.json({ message: 'Document indexé avec succès', documentId: body._id });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erreur lors de l\'indexation du document' });
+  }
+});
+```
+
+## Indexer dans documents en lots (bulk)
+```
+app.post('/index/:indexName/bulk', async (req, res) => {
+  try {
+    const { indexName } = req.params;
+    const { documents } = req.body;
+
+    const body = documents.flatMap((document) => [
+      { index: { _index: indexName } },
+      document
+    ]);
+
+    await client.bulk({
+      body
+    });
+
+    res.json({ message: 'Indexation en lots réussie' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erreur lors de l\'indexation en lots' });
+  }
+});
+```
+
+## Rechercher dans les documents
+```
+app.get('/index/:indexName/search', async (req, res) => {
+  try {
+    const { indexName } = req.params;
+    const { start = 0, length = 10, value = '', sortField = '_id', sortOrder = 'asc' } = req.query;
+
+    const { body } = await client.search({
+      index: indexName,
+      body: {
+        from: parseInt(start),
+        size: parseInt(length),
+        query: {
+          multi_match: {
+            query: value,
+            fields: ['_id', 'brand', 'Model', 'Crystal Material', 'Price $']
+          }
+        },
+        sort: [
+          {
+            [sortField]: sortOrder
+          }
+        ]
+      }
+    });
+
+    if (body.hits) {
+      const totalCount = body.hits.total.value;
+      const data = body.hits.hits.map((hit) => hit._source);
+
+      res.json({
+        totalCount,
+        data
+      });
+    } else {
+      res.status(500).json({ error: 'Erreur lors de la récupération des données : body.hits est undefined' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erreur lors de la récupération des données' });
+  }
+});
+```
