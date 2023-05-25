@@ -181,6 +181,26 @@ app.get('/index/:indexName/search', async (req, res) => {
   }
 });
 ```
-## Comment Elasticsearch procède-t-il au mapping?
-
+## Exercices sur le mapping :
+### Comment Elasticsearch procède t il au mapping ?
 Elasticsearch utilise le mapping pour définir comment un document doit être mappé. Par défaut, il utilise le mappage dynamique, où le moteur de recherche décide du type de données en se basant sur les données indexées. Cependant, vous pouvez définir des mappings personnalisés si vous le souhaitez, en spécifiant le type de données pour chaque champ.
+
+### Modifier un index pour affecter un mapping explicite.
+Pour modifier un index pour affecter un mapping explicite, vous pouvez utiliser l'API PUT mapping. Par exemple:
+```
+PUT /my_index/_mapping
+{
+  "properties": {
+    "name": {
+      "type": "text"
+    },
+    "age": {
+      "type": "integer"
+    }
+  }
+}
+```
+Dans cet exemple, nous avons défini un mapping pour les champs name et age dans l'index my_index.
+
+### Peut-on modifier le mapping sans recréer l’index?
+Non, une fois un mapping défini, il n'est pas possible de le modifier sans réindexer les données. Cela signifie que si vous souhaitez changer le mapping, vous devrez supprimer l'index, le recréer avec le nouveau mapping, puis réindexer vos données.
