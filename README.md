@@ -204,3 +204,14 @@ Dans cet exemple, nous avons défini un mapping pour les champs name et age dans
 
 ### Peut-on modifier le mapping sans recréer l’index?
 Non, une fois un mapping défini, il n'est pas possible de le modifier sans réindexer les données. Cela signifie que si vous souhaitez changer le mapping, vous devrez supprimer l'index, le recréer avec le nouveau mapping, puis réindexer vos données.
+
+## Exercices sur l'analyseur :
+###Tokenisation : La tokenisation est le processus par lequel le texte en entrée est divisé en unités plus petites, appelées "tokens". En général, les tokens sont des mots, mais ils peuvent également être des phrases ou d'autres unités en fonction du contexte. Par exemple, dans la phrase "Le chat est sur le tapis", la tokenisation produit la liste de tokens suivante : ["Le", "chat", "est", "sur", "le", "tapis"].
+
+###Normalisation : La normalisation est le processus par lequel le texte est transformé en une forme standard avant de le traiter davantage. Il existe de nombreuses étapes possibles de normalisation, notamment la mise en minuscules (pour éviter que "Chat" et "chat" soient traités comme des mots différents), l'élimination de la ponctuation (pour que "chat." et "chat" soient considérés comme le même mot), et la lemmatisation ou la racinisation (pour que "chats" et "chat" soient traités comme le même mot).
+
+##Les API's : 
+-API RESTful (mon projet)
+
+
+# TP-2 ESI 4 – D Elasticsearch	 
