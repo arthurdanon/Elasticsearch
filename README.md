@@ -210,7 +210,7 @@ Non, une fois un mapping défini, il n'est pas possible de le modifier sans réi
 
 ###Normalisation : La normalisation est le processus par lequel le texte est transformé en une forme standard avant de le traiter davantage. Il existe de nombreuses étapes possibles de normalisation, notamment la mise en minuscules (pour éviter que "Chat" et "chat" soient traités comme des mots différents), l'élimination de la ponctuation (pour que "chat." et "chat" soient considérés comme le même mot), et la lemmatisation ou la racinisation (pour que "chats" et "chat" soient traités comme le même mot).
 
-##Les API's : 
+## Les API's : 
 -API RESTful (mon projet)
 
 
