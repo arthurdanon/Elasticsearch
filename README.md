@@ -215,7 +215,7 @@ Non, une fois un mapping défini, il n'est pas possible de le modifier sans réi
 
 
 # TP-2 
-##Créé un index avec un mapping via l'api
+Créé un index avec un mapping via l'api
 ```
 app.post('/create-index', async (req, res) => {
   const { index, body } = req.body;
@@ -223,7 +223,7 @@ app.post('/create-index', async (req, res) => {
   res.json(response);
 });
 ```
-##Configuration des recherches
+Configuration des recherches
 ```
 app.post('/configure-search', async (req, res) => {
   const { index, type, body } = req.body;
@@ -231,7 +231,7 @@ app.post('/configure-search', async (req, res) => {
   res.json(response);
 });
 ```
-##Sauvegarde des clusters Elasticsearch
+Sauvegarde des clusters Elasticsearch
 Pour sauvegarder mon cluster Elasticsearch, j'ai utilisé la fonctionnalité "Snapshot and Restore". J'ai d'abord configuré un référentiel de snapshots en utilisant une requête PUT. Ensuite, j'ai créé un snapshot de mon cluster avec une autre requête PUT. Si nécessaire, je peux restaurer mon cluster à partir d'un snapshot en utilisant une requête POST.
 
 # TP-3
