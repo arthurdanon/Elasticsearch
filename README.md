@@ -29,7 +29,7 @@ $docker run --name es01 --net elastic -e discovery.type=single-node -p 9200:9200
 >✅ Authentication is enabled and cluster connections are encrypted.
 
 >ℹ️  Password for the elastic user (reset with `bin/elasticsearch-reset-password -u elastic`):
->RbnHzY51ZeuD1BNa*VaG
+>_VySJT0hOp7AnrUv9XKm
 
 >ℹ️  HTTP CA certificate SHA-256 fingerprint:
 >ca8bded5754c783acb70992afdc4047f3ba3c73fb2d03d595da46e1e7e410dea
